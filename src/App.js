@@ -8,8 +8,11 @@ import PokemonDetail from './components/PokemonDetail';
 
 function App() {
   const [pokemons, setPokemon] = useState([]);
+  const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon")
+  const [nextPageUrl, setNextPageUrl] = useState();
+  const [prevPageUrl, setPrevPageUrl] = useState();
   const [loading, setLoading] = useState('');
-  
+
   useEffect(() => {
     setLoading(true)
     let cancel
@@ -19,8 +22,10 @@ function App() {
     setLoading(false)
     setNextPageUrl(res.data.next)
     setPrevPageUrl(res.data.previous)
-    setPokemon(res.data.results);
+    setPokemon(res.data.results)
     })
+    return () => cancel()
+  },[currentPageUrl])
   return (
     <div className="App">
       <Router>
