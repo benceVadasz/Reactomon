@@ -7,6 +7,20 @@ import Types from './Types';
 import PokemonDetail from './components/PokemonDetail';
 
 function App() {
+  const [pokemons, setPokemon] = useState([]);
+  const [loading, setLoading] = useState('');
+  
+  useEffect(() => {
+    setLoading(true)
+    let cancel
+    axios.get(currentPageUrl, {
+      cancelToken: new axios.CancelToken(c => cancel = c)
+    }).then(res=> {
+    setLoading(false)
+    setNextPageUrl(res.data.next)
+    setPrevPageUrl(res.data.previous)
+    setPokemon(res.data.results);
+    })
   return (
     <div className="App">
       <Router>
