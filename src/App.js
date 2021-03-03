@@ -45,6 +45,8 @@ function gotoPrevPage() {
   setCurrentPageUrl(prevPageUrl)
 }
 
+if (loading) return <div className="loading">Loading...</div>
+
   return (
     <div className="App">
       <Router>
