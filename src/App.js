@@ -14,6 +14,7 @@ function App() {
   const [nextPageUrl, setNextPageUrl] = useState();
   const [prevPageUrl, setPrevPageUrl] = useState();
   const [loading, setLoading] = useState('');
+  const [types, setTypes] = useState([]);
 
   useEffect(() => {
     setLoading(true)
@@ -28,13 +29,11 @@ function App() {
     })
     return () => cancel()
   },[currentPageUrl])
-
-  const [types, setTypes] = useState([]);
+  
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/type`).then(res=> {
     setTypes(res.data.results.map(p=>p.name));
   })
-  
 },[])
 
 function gotoNextPage() {
