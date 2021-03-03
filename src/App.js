@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
 import Navbar from './components/Navbar';
 import Pokemons from './pages/Pokemons';
 import axios from 'axios'
