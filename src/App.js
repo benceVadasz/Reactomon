@@ -5,6 +5,7 @@ import Pokemons from './pages/Pokemons';
 import axios from 'axios'
 import Types from './Types';
 import PokemonDetail from './components/PokemonDetail';
+import Pagination from './components/Pagination';
 
 function App() {
   const [pokemons, setPokemon] = useState([]);
@@ -34,6 +35,16 @@ function App() {
   })
   
 },[])
+
+function gotoNextPage() {
+
+  setCurrentPageUrl(nextPageUrl)
+}
+
+function gotoPrevPage() {
+  setCurrentPageUrl(prevPageUrl)
+}
+
   return (
     <div className="App">
       <Router>
@@ -42,6 +53,10 @@ function App() {
         <Route exact path="/pokemons" children = {<Pokemons pokemons={pokemons}/>} />
         <Route exact path="/types" children = {<Types exact path="/types" types={types}/>}/>
         </Router>
+        <Pagination
+        gotoNextPage={nextPageUrl ? gotoNextPage : null}
+        gotoPrevPage={prevPageUrl ? gotoPrevPage : null}
+      />
     </div>
   );
 }
