@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,  } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Pokemons from "./pages/Pokemons";
@@ -7,6 +7,7 @@ import axios from "axios";
 import Types from "./pages/Types";
 import PokemonDetail from "./components/PokemonDetail";
 import Pagination from "./components/Pagination";
+import ThemeContextProvider from './contexts/ThemeContext';
 
 function App() {
   const [pokemons, setPokemon] = useState([]);
@@ -47,12 +48,13 @@ function App() {
   function gotoPrevPage() {
     setCurrentPageUrl(prevPageUrl);
   }
-  if (loading) return <div className="loading">Loading...</div>;
+  if (loading) return (<div className="App"><div className="loading">Loading...</div></div>);
   return (
     <div className="App">
+      <ThemeContextProvider>
       <Router>
         <Navbar />
-        <Route exact path="/pokemons/:id" children={<PokemonDetail />} />
+        <Route exact path="/pokemon/:id" children={<PokemonDetail />} />
         <Route
           exact
           path="/pokemons"
@@ -61,13 +63,14 @@ function App() {
         <Route
           exact
           path="/types"
-          children={<Types exact path="/types" types={types} />}
+          children={<Types types={types} />}
         />
       </Router>
       <Pagination
         gotoNextPage={nextPageUrl ? gotoNextPage : null}
         gotoPrevPage={prevPageUrl ? gotoPrevPage : null}
       />
+      </ThemeContextProvider>
     </div>
   );
 }

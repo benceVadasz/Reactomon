@@ -10,8 +10,33 @@
   pointer-events: none;
 }
 
-body {
+html,body {
+  overflow: auto;
   background-image: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  vertical-align: top;
+  margin-bottom: -5px;
+}
+
+#root {
+  padding: 0;
+  margin: 0;
+}
+
+.darkmode {
+  background-image: linear-gradient(to top, #003645 0%, #46657D 100%);
+}
+
+.darkmode2 {
+  background-image: linear-gradient(to top, #46657D 0%, #003645 100%);
+  color: white;
+}
+
+header {
+  width: 100%;
+  overflow: auto;
 }
 
 .card-container {
@@ -35,7 +60,10 @@ body {
   font-size: 22px;
 }
 
-
+.links > img {
+  align-self: auto;
+  margin-left: 100px;
+}
 
 .weight {
   padding: 0 15px;
@@ -50,7 +78,7 @@ body {
 }
 
 .loading {
-  margin: auto; 
+  margin: 0 auto; 
 }
 
 .pokimg {
@@ -70,6 +98,10 @@ body {
   text-decoration: none;
 }
 
+span {
+  font-family: 'Artifika', serif;
+}
+
 button {
   width: 115px;
   height: 45px;
@@ -84,15 +116,22 @@ button {
   text-decoration: none;
   outline: none;
   margin: 20px 20px;
+  font-family: 'Artifika', serif;
+  font-size: 18px;
 }
 
 .links {
   margin: 50px 0;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
   flex-flow: row;
+  margin-left: 20px;
 }
+
+.toggle__box {
+  margin: 0 20px;
+}
+
 
 .App-header {
   background-color: #282c34;
@@ -111,8 +150,7 @@ button {
   justify-content: center;
 }
 
-a {
-  display: block; 
+.Card__name > a {
   width: 200px;
   height: 80px;
   background: snow;

@@ -1,22 +1,46 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
-import logo from "../logo.png";
+import styled from "styled-components";
+import ToggleTheme from "../ToggleTheme";
+import { ThemeContext } from "../contexts/ThemeContext";
+import logo from "../assets/logo.png";
 
-function NavBar() {
+function Header() {
+  const Button = styled.button`
+    width: 115px;
+    height: 45px;
+    cursor: pointer;
+    background: #4e9caf;
+    padding: 7px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+    border: none;
+    border-radius: 5%;
+    text-decoration: none;
+    outline: none;
+    margin: 20px 20px;
+    font-family: "Artifika", serif;
+    font-size: 18px;
+  `;
+
+  const { lightTheme } = useContext(ThemeContext);
+  const theme = !lightTheme ? " darkmode" : "";
   return (
-    <header className="header">
-      <img src={logo} className="App-logo" alt="logo" />
+    <header className={"header" + theme}>
       <div className="links">
-        <Link className="link" to="/pokemons">
-          Pokemons
+        <ToggleTheme />
+        <Link to="/pokemons">
+          <Button id="pok-btn">Pokemons</Button>
         </Link>
-        <Link className="link" to="/types">
-          Types
+        <Link to="/types">
+          <Button id="type-btn">Types</Button>
         </Link>
+        <img src={logo} alt="" width="300px"/>
       </div>
     </header>
   );
 }
 
-export default NavBar;
+export default Header;
