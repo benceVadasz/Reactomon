@@ -78,6 +78,8 @@ header {
 }
 
 .loading {
+  font-size: 20px;
+  font-family: 'Artifika', serif;
   margin: 0 auto; 
 }
 
