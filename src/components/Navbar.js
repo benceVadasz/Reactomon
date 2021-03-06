@@ -37,6 +37,9 @@ function Header() {
         <Link to="/types">
           <Button id="type-btn">Types</Button>
         </Link>
+        <Link to="/catched-pokemons">
+          <Button id="catched-btn">Catched</Button>
+        </Link>
         <img src={logo} alt="" width="300px"/>
       </div>
     </header>
