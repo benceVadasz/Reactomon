@@ -23,6 +23,9 @@ function Header() {
     margin: 20px 20px;
     font-family: "Artifika", serif;
     font-size: 18px;
+    &:hover {
+    background: #42826D;
+  }
   `;
 
   const { lightTheme } = useContext(ThemeContext);
@@ -38,7 +41,7 @@ function Header() {
           <Button id="type-btn">Types</Button>
         </Link>
         <Link to="/catched-pokemons">
-          <Button id="catched-btn">Catched</Button>
+          <Button id="catched-btn">Caught</Button>
         </Link>
         <img src={logo} alt="" width="300px"/>
       </div>

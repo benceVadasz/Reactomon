@@ -8,11 +8,14 @@ export default function Pokemons() {
     return <h3>No pokemons yet</h3>;
   }
   return (
-    <h3>
-      <h1>Catched Pokemons</h1>
-      {pokemons.map((pokemon) => (
-        <Card pokemon={pokemon} key={pokemon.name} />
-      ))}
-    </h3>
+    <div className="big">
+      <h1>Caught Pokemons</h1>
+      <h3 className="grid-container">
+        {pokemons.map((pokemon) => (
+          <Card pokemon={pokemon} key={pokemon.name} />
+        ))}
+      </h3>
+      
+    </div>
   );
 }
