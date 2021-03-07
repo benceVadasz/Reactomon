@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from 'react';
 import axios from "axios";
-import Card from '../components/Card';
 
 export default function Types() {
     const [types, setTypes] = useState([]);
@@ -11,11 +10,11 @@ export default function Types() {
         });
       }, []);
     return (
-        <div>
+        <div className="type-container">
             {types.map(p =>(
-                <Card key={p.name}>
-                    {p}
-                </Card>
+                <div className="type-div" key={p.name}>
+                    <p className="type-name">{p}</p>
+                </div>
             ))}
         </div>
     )

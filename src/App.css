@@ -141,6 +141,13 @@ button {
   margin: 0 20px;
 }
 
+.type-name {
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Artifika', serif;
+  color: #4e9caf;
+}
+
 
 .App-header {
   background-color: #282c34;
@@ -151,6 +158,23 @@ button {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.type-div {
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  border: 1px solid #4e9caf;
+  background: white;
+  margin: 20px 20px;
+  border-radius: 10px;
+
+}
+
+.type-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .link-card {
