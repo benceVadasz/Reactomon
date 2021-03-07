@@ -11,8 +11,6 @@ import ThemeContextProvider from "./contexts/ThemeContext";
 import CatchedPokemons from "./pages/CatchedPokemons";
 
 function App() {
-  
-  
   const store = createStore(model);
 
   return (
@@ -22,11 +20,7 @@ function App() {
           <Router>
             <Navbar />
             <Route exact path="/pokemon/:id" children={<PokemonDetail />} />
-            <Route
-              exact
-              path="/pokemons"
-              children={<Pokemons/>}
-            />
+            <Route exact path="/pokemons" children={<Pokemons />} />
             <Route exact path="/types" children={<Types />} />
             <Route
               exact

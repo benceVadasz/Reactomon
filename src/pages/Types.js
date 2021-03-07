@@ -1,7 +1,10 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";
 
 export default function Types() {
+    const { lightTheme } = useContext(ThemeContext);
+  const theme = !lightTheme ? " darkmode2" : "";
     const [types, setTypes] = useState([]);
 
     useEffect(() => {
@@ -10,10 +13,10 @@ export default function Types() {
         });
       }, []);
     return (
-        <div className="type-container">
-            {types.map(p =>(
-                <div className="type-div" key={p.name}>
-                    <p className="type-name">{p}</p>
+        <div className={"type-container"+ theme}>
+            {types.map(t =>(
+                <div className="type-div" key={t.name}>
+                    <p className="type-name">{t}</p>
                 </div>
             ))}
         </div>
